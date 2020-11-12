@@ -7,6 +7,7 @@ import (
 
 const (
 	notSoGoodCard = "4561261212345464"
+	goodCard = "4561261212345467"
 	badCard1      = "1"
 )
 
@@ -51,7 +52,8 @@ func TestBankCard_Check(t *testing.T) {
 		want    bool
 		wantErr bool
 	}{
-		{"ok", BankCard{Number: notSoGoodCard}, false, false},
+		{"!ok", BankCard{Number: notSoGoodCard}, false, false},
+		{"ok", BankCard{Number: goodCard}, true, false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
