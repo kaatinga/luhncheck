@@ -47,10 +47,9 @@ func (card *BankCard) Check() (bool, error) {
 	var cardNumberLength = len(card.Number)
 	var i = cardNumberLength % 2
 
+	// compose new map with double numbers
 	var number byte
 	var doubleNumbers = make(map[int]byte, cardNumberLength/2)
-
-	// compose new slice with numbers
 	for {
 
 		// new map to check
@@ -85,10 +84,6 @@ func (card *BankCard) Check() (bool, error) {
 		}
 	}
 
-	if sum % 10 == 0 {
-		card.Valid = true
-		//log.Println("the card is valid!")
-	}
-
+	card.Valid = sum % 10 == 0
 	return card.Valid, nil
 }
