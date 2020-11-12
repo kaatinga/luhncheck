@@ -2,7 +2,6 @@ package luhncheck
 
 import (
 	"errors"
-	"log"
 )
 
 // Errors
@@ -88,7 +87,7 @@ func (card *BankCard) Check() (bool, error) {
 
 	if sum % 10 == 0 {
 		card.Valid = true
-		log.Println("the card is valid!")
+		//log.Println("the card is valid!")
 	}
 
 	return card.Valid, nil
